@@ -157,6 +157,18 @@ void BuscaryModificarBebida(string nombreBebida, int lote)
     }
     cout << " No se ha encontrado la bebida!" << endl;
 }
+void EliminarBebida(string nombreBebida, int lote)
+{
+    for (int i = 0; i < packs.size(); i++)
+    {
+        if (nombreBebida == packs[i].nombre_bebida && lote == packs[i].lote)
+        {
+            packs.erase(packs.begin() + i);
+            return;
+        }
+    }
+    cout << " No se ha encotrado la bebida! Ingrese bien el nombre o el lote" << endl;
+}
 
 
 //Archivo que se encarga de la ejecucion de funciones
