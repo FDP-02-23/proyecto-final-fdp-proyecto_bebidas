@@ -94,7 +94,6 @@ int BuscarBebidapack12(string nombreBebida)
 }
 int BuscarBebidapack24(string nombreBebida)
 {
-
     int contadorpacks24 = 0;
     for (Bebida bebida : packs)
     {
@@ -108,7 +107,8 @@ int BuscarBebidapack24(string nombreBebida)
     }
     return contadorpacks24;
 }
-int BuscarLote(int identificador) // Funcion que se encarga de buscar al lote del producto usado modficarlo en caso de devolucion
+// Funcion que se encarga de buscar al lote del producto usado
+int BuscarLote(int identificador) 
 {
     int lote = 0;
     for (Ventas ventas : venta)
@@ -120,5 +120,43 @@ int BuscarLote(int identificador) // Funcion que se encarga de buscar al lote de
     }
     return lote;
 }
+void BuscaryModificarBebida(string nombreBebida, int lote)
+{
+    string nuevoNombre;
+    int nuevoTipo;
+    float nuevoPrecio;
+    int nuevaCantidad;
+    float nuevoPrecioVenta;
+
+    for (int i = 0; i < packs.size(); i++)
+    {
+        cin.ignore();
+        if (nombreBebida == packs[i].nombre_bebida && lote == packs[i].lote)
+        {
+            cout << " Nuevo nombre: ";
+            getline(cin, nuevoNombre);
+            cout << " Nuevo tipo de pack: ";
+            cin >> nuevoTipo;
+            cout << " Nueva cantidad: ";
+            cin >> nuevaCantidad;
+            cout << " Nuevo monto total invertido: $";
+            cin >> nuevoPrecio;
+            cout << " Nuevo precio de venta: $";
+            cin >> nuevoPrecioVenta;
+
+            packs[i].nombre_bebida = nuevoNombre;
+            packs[i].tipo_bebida = nuevoTipo;
+            packs[i].precio = nuevoPrecio;
+            packs[i].cantidad = nuevaCantidad;
+            packs[i].precio_venta = nuevoPrecioVenta;
+
+            cout << endl;
+            cout << " Bebida modificada exitosamente" << endl;
+            return;
+        }
+    }
+    cout << " No se ha encontrado la bebida!" << endl;
+}
+
 
 //Archivo que se encarga de la ejecucion de funciones
