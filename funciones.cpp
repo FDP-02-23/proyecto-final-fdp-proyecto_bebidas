@@ -1,3 +1,5 @@
+//Archivo que se encarga de la definicion de funciones 
+
 #include "encabezado.h"
 #include <iostream>
 #include <fstream>
@@ -8,14 +10,14 @@
 //Vectores utilizados
 vector<Bebida> packs;
 
-//Definicion de Funciones
-
+// Imprimir la fecha actual
 string GetCurrentDate()
 {
     time_t t = time(0);
     tm *now = localtime(&t);
     return to_string(now->tm_mday) + "/" + to_string(now->tm_mon + 1) + "/" + to_string(now->tm_year + 1900);
 }
+// Imprimir informacion de bebidas existentes
 void ImprimirBebidas()
 {
     for (Bebida bebida : packs)
@@ -30,6 +32,7 @@ void ImprimirBebidas()
     }
     cout << "\n\n";
 }
+// Imprimir el numero de lote y la informacion de este
 void ImprimirLotes(string nombre)
 {
     for (Bebida bebida : packs)
@@ -46,10 +49,13 @@ void ImprimirLotes(string nombre)
     }
     cout << "\n\n";
 }
+
+// Agregar bebida al vector
 void AgregarBebida(Bebida nuevaBebida)
 {
     packs.push_back(nuevaBebida);
 }
+// Buscar bebida por packs 
 int BuscarBebidaPack(int lote, string nombrebebida)
 {
     int contadorpacks = 0;
@@ -120,6 +126,7 @@ int BuscarLote(int identificador)
     }
     return lote;
 }
+// Buscar y modificar una bebida existente
 void BuscaryModificarBebida(string nombreBebida, int lote)
 {
     string nuevoNombre;
@@ -157,6 +164,7 @@ void BuscaryModificarBebida(string nombreBebida, int lote)
     }
     cout << " No se ha encontrado la bebida!" << endl;
 }
+// Eliminar bebida existente
 void EliminarBebida(string nombreBebida, int lote)
 {
     for (int i = 0; i < packs.size(); i++)
@@ -169,6 +177,3 @@ void EliminarBebida(string nombreBebida, int lote)
     }
     cout << " No se ha encotrado la bebida! Ingrese bien el nombre o el lote" << endl;
 }
-
-
-//Archivo que se encarga de la ejecucion de funciones
