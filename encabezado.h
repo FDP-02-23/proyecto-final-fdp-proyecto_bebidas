@@ -32,7 +32,6 @@ int BuscarBebidapack24(string);
 void EliminarBebida(string, int);
 void AgregarBebida(Bebida);
 int BuscarLote(int);
-
-
+string GetCurrentDate();
 
 #endif // FUNCIONES_H
