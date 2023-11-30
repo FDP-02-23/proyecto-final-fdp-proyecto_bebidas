@@ -50,5 +50,17 @@ void AgregarBebida(Bebida nuevaBebida)
 {
     packs.push_back(nuevaBebida);
 }
+int BuscarBebidaPack(int lote, string nombrebebida)
+{
+    int contadorpacks = 0;
+    for (Bebida bebida : packs)
+    {
+        if (lote == bebida.lote && nombrebebida == bebida.nombre_bebida)
+        {
+            contadorpacks = bebida.cantidad;
+        }
+    }
+    return contadorpacks;
+}
 
 //Archivo que se encarga de la ejecucion de funciones
