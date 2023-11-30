@@ -30,5 +30,25 @@ void ImprimirBebidas()
     }
     cout << "\n\n";
 }
+void ImprimirLotes(string nombre)
+{
+    for (Bebida bebida : packs)
+    {
+        if (nombre == bebida.nombre_bebida)
+        {
+            cout << endl;
+            cout << " El numero de lote es: " << bebida.lote << endl
+                 << " El tipo de pack es: " << bebida.tipo_bebida << endl
+                 << " La cantidad de packs comprados es de: " << bebida.cantidad << endl
+                 << " El precio de venta por pack sera de: $" << bebida.precio_venta << endl
+                 << " La ganancia por pack sera de: $" << (bebida.precio_venta - (bebida.precio / bebida.cantidad)) << endl;
+        }
+    }
+    cout << "\n\n";
+}
+void AgregarBebida(Bebida nuevaBebida)
+{
+    packs.push_back(nuevaBebida);
+}
 
 //Archivo que se encarga de la ejecucion de funciones
