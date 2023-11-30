@@ -92,5 +92,33 @@ int BuscarBebidapack12(string nombreBebida)
     }
     return contadorpacks12;
 }
+int BuscarBebidapack24(string nombreBebida)
+{
+
+    int contadorpacks24 = 0;
+    for (Bebida bebida : packs)
+    {
+        if (nombreBebida == bebida.nombre_bebida)
+        {
+            if (bebida.tipo_bebida == 3)
+            {
+                contadorpacks24 = contadorpacks24 + bebida.cantidad;
+            }
+        }
+    }
+    return contadorpacks24;
+}
+int BuscarLote(int identificador) // Funcion que se encarga de buscar al lote del producto usado modficarlo en caso de devolucion
+{
+    int lote = 0;
+    for (Ventas ventas : venta)
+    {
+        if (identificador == ventas.identificador)
+        {
+            lote = ventas.lote;
+        }
+    }
+    return lote;
+}
 
 //Archivo que se encarga de la ejecucion de funciones
