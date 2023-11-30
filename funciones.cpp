@@ -62,5 +62,35 @@ int BuscarBebidaPack(int lote, string nombrebebida)
     }
     return contadorpacks;
 }
+int BuscarBebidapack6(string nombreBebida)
+{
+    int contadorpacks6 = 0;
+    for (Bebida bebida : packs)
+    {
+        if (nombreBebida == bebida.nombre_bebida)
+        {
+            if (bebida.tipo_bebida == 1)
+            {
+                contadorpacks6 = contadorpacks6 + bebida.cantidad;
+            }
+        }
+    }
+    return contadorpacks6;
+}
+int BuscarBebidapack12(string nombreBebida)
+{
+    int contadorpacks12 = 0;
+    for (Bebida bebida : packs)
+    {
+        if (nombreBebida == bebida.nombre_bebida)
+        {
+            if (bebida.tipo_bebida == 2)
+            {
+                contadorpacks12 = contadorpacks12 + bebida.cantidad;
+            }
+        }
+    }
+    return contadorpacks12;
+}
 
 //Archivo que se encarga de la ejecucion de funciones
