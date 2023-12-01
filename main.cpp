@@ -269,6 +269,114 @@ int main()
                         case 1:
                         cout << endl;
                         cout << "----- MANEJO DE PRODUCTOS ----- " << endl;
+                        cout << endl;
+                        cout << "Opciones: " << endl;
+                        cout << " (1) Agregar productos" << endl;
+                        cout << " (2) Mostrar productos existentes" << endl;
+                        cout << " (3) Modificar productos existentes" << endl;
+                        cout << " (4) Eliminar productos existentes" << endl;
+                        cout << " (5) Regresar al menu anterior\n >";
+                        cin >> opcion1;
+                        cout << endl;
+
+                        do
+                        {
+                            cin.ignore(); 
+                            switch (opcion1)
+                            {
+                                case 1: 
+                                // Opcion 1
+                                // Lote es el campo oculto que se llenara automaticamente sin pedir ingreso
+                                cout << " Ingrese el nombre de la bebida: ";
+                                getline(cin, bebida.nombre_bebida);
+                                cout << endl;
+                                cout << " Tipos de packs: " << endl;
+                                cout << "   (1) Pack de 6 botellas" << endl;
+                                cout << "   (2) Pack de 12 botellas" << endl;
+                                cout << "   (3) Pack de 24 botellas\n";
+                                cout << endl;
+                                cout << " Ingrese el tipo de pack a comprar: ";
+                                cin >> bebida.tipo_bebida;
+
+                                // Verificar si el tipo pack es diferente a 1, 2 o 3, si lo es, requerir un valor valido
+                                if (bebida.tipo_bebida != 1 && bebida.tipo_bebida != 2 && bebida.tipo_bebida != 3)
+                                {
+                                    cout << " El tipo de pack no es correcto, ingrese una opcion valida" << endl;
+                                    cout << endl;
+                                    regresarmenupro = 1;
+                                    regresar = 0;
+                                }
+                                else
+                                {
+                                    cout << " Ingrese el monto total invertido de su compra: $";
+                                    cin >> bebida.precio;
+                                    cout << " Ingrese la cantidad de packs: ";
+                                    cin >> bebida.cantidad;
+                                    cout << endl;
+                                    cout << " El precio por pack es de $" << (bebida.precio / bebida.cantidad) << endl;
+                                    cout << " Le sugerimos ingresar un monto mayor generar ganancia." << endl;
+                                    cout << " Ingrese el costo de venta por pack: $";
+                                    cin >> bebida.precio_venta;
+                                    cout << endl;
+                                    lote = lote + 1;
+                                    bebida.lote = lote;
+                                    AgregarBebida(bebida);
+                                    cout << " Producto ingresado exitosamente" << endl;
+                                    cout << endl;
+                                    regresarmenupro = 1;
+                                    regresar = 0;
+                                }
+                                break; 
+
+                                case 2: 
+                                // Opcion 2 menu
+                                ImprimirBebidas();
+                                break; 
+
+                                case 3: 
+                                // Opcion 3 menu 
+                                ImprimirBebidas();
+                                cout << " Ingrese el nombre de la bebida: ";
+                                getline(cin, bebida.nombre_bebida);
+                                cout << " Ingrese el numero de lote: ";
+                                cin >> bebida.lote;
+                                BuscaryModificarBebida(bebida.nombre_bebida, bebida.lote);
+                                cout << endl;
+                                regresar = 0;
+                                break; 
+
+                                case 4: 
+                                // Opcion 4 menu 
+                                ImprimirBebidas();
+                                cout << " Ingrese el nombre de la bebida a eliminar: ";
+                                getline(cin, bebida.nombre_bebida);
+                                cout << " Ingrese el numero de lote: ";
+                                cin >> bebida.lote;
+
+                                EliminarBebida(bebida.nombre_bebida, bebida.lote);
+                                cout << endl; 
+                                cout << " Bebida eliminada correctamente" << endl;
+                                cout << endl;
+                                regresarmenupro = 1;
+                                regresar = 0;
+                                break; 
+
+                                case 5: 
+                                // Regrasar al menu anterior
+                                regresarmenupro = 1;
+                                regresar = 1;
+                                contador = 0;
+                                break; 
+
+                            default:
+                                cout << "Opcion no valida! Regresando..." << endl;
+                                cout << endl;
+                                regresarmenupro = 1;
+                                regresar = 0;
+                                break;
+                            }
+                            system("pause"); 
+                        } while(regresarmenupro == 0);
                         break;
 
                         // Opcion 2 del menu Usuario Administrador 2
