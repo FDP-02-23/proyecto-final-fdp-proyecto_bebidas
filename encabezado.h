@@ -23,6 +23,7 @@ int BuscarUsuario();
 void AgregarUsuarios(Usuarios);
 void ModificarUsuario(string);
 void ImprimirUsuarios();
+void EliminarUsuario(string);
 
 
 
