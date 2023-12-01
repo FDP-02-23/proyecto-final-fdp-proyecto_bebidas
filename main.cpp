@@ -103,6 +103,8 @@ int main()
                         switch (opcion1)
                         {
                             case 1: 
+                            // Agregar productos/bebidas nuevas
+
                                 // Lote es el campo oculto que se llenara automaticamente sin pedir ingreso
                                 cout << " Ingrese el nombre de la bebida: ";
                                 getline(cin, bebida.nombre_bebida);
@@ -119,7 +121,7 @@ int main()
                                 if (bebida.tipo_bebida != 1 && bebida.tipo_bebida != 2 && bebida.tipo_bebida != 3)
                                 {
                                     cout << " Ingrese una opcion valida!\n"
-                                         << endl;
+                                    cout << endl;
                                     regresarmenupro = 1;
                                     regresar = 0;
                                 }
@@ -143,14 +145,16 @@ int main()
                                     regresarmenupro = 1;
                                     regresar = 0;
                                 }
-                            break; 
+                                break; 
 
                             case 2: 
+                            // Mostrar bebidas existentes disponibles
                                 ImprimirBebidas();
-                            break; 
+                                break; 
 
                             case 3: 
-                                 ImprimirBebidas();
+                            // Modificar bebidas existentes
+                                ImprimirBebidas();
                                 cout << "Ingrese el nombre de la bebida: ";
                                 getline(cin, bebida.nombre_bebida);
                                 cin.ignore();
@@ -160,14 +164,26 @@ int main()
                                 BuscaryModificarBebida(bebida.nombre_bebida, bebida.lote);
                                 cout << endl;
                                 regresar = 0;
-                                break;
-                            break; 
+                                break; 
 
                             case 4: 
-                            break; 
+                            // Opcion eliminar bebida existente
+                                ImprimirBebidas();
+                                cout << " Ingrese el nombre de la bebida a eliminar: ";
+                                getline(cin, bebida.nombre_bebida);
+                                cout << " Ingrese el numero de lote: ";
+                                cin >> bebida.lote;
+                                EliminarBebida(bebida.nombre_bebida, bebida.lote);
+                                cout << endl;
+                                cout << " Bebida eliminada correctamente" << endl;
+                                break; 
 
                             case 5: 
-                            break; 
+                            // Regresar al menu 
+                                regresarmenupro = 1;
+                                regresar = 1;
+                                contador = 0;
+                                break; 
 
                         default:
                             cout << "Opcion no valida! Regresando..." << endl;
