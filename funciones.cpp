@@ -655,3 +655,4 @@ int BuscarCantidadVenta(int identificador)
     }
     return cantidad;
 }
+
