@@ -146,11 +146,21 @@ int main()
                             break; 
 
                             case 2: 
-                            
+                                ImprimirBebidas();
                             break; 
 
                             case 3: 
+                                 ImprimirBebidas();
+                                cout << "Ingrese el nombre de la bebida: ";
+                                getline(cin, bebida.nombre_bebida);
+                                cin.ignore();
+                                cout << "Ingrese el numero de lote: ";
+                                cin >> bebida.lote;
 
+                                BuscaryModificarBebida(bebida.nombre_bebida, bebida.lote);
+                                cout << endl;
+                                regresar = 0;
+                                break;
                             break; 
 
                             case 4: 
