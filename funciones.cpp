@@ -136,3 +136,30 @@ void EliminarUsuario(string usuarioEliminar)
     }
     cout << "El usuario no existe!" << endl;
 }
+int BuscarUsuario(string nombreusuario, string contrasenia)
+{
+    int tipo_usu = 0;
+    int contador = 0;
+    
+    for (Usuarios usuario : usuario)
+    {
+        if (nombreusuario == usuario.usuario)
+        {
+            if(usuario.contrasenia == contrasenia){
+                if(usuario.tipo_usuario == 1){
+                    //cout << "Bienvenido usuario administrador" << endl;
+                    tipo_usu = 1;
+                    return tipo_usu;
+                } else {
+                    //cout << "Bienvenido empleado" << endl;
+                    tipo_usu = 2;
+                    return tipo_usu;
+                }
+
+            }
+        }
+    }
+    cout << "No se ha encontrado el usuario" << endl;
+    system("pause");
+    return tipo_usu;
+}
