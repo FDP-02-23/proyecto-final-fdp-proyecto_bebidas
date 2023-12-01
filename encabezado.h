@@ -9,8 +9,14 @@
 #include <string>
 
 using namespace std;
-
 //Declaraciones de estructuras a utilizar
+struct Usuarios
+{
+    string usuario;
+    string contrasenia;
+    int tipo_usuario;
+    string usuario_creacion;
+};
 struct Bebida
 {
     string nombre_bebida;
@@ -21,7 +27,14 @@ struct Bebida
     int lote;
 };
 
-//Declaracion de las funciones a utilizar
+
+void InicializarUsuarios();
+int BuscarUsuario();
+void AgregarUsuarios(Usuarios);
+void ModificarUsuario(string);
+void ImprimirUsuarios();
+void EliminarUsuario(string);
+int BuscarUsuario(string, string);
 void ImprimirBebidas();
 void BuscaryModificarBebida(string, int);
 void ImprimirLotes(string);
