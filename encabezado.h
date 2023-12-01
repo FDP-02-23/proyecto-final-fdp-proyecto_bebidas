@@ -84,6 +84,7 @@ void MostrarRegistro(string archivo);
 void ImprimirVentas();
 void ImprimirLotes(string);
 void ModificarStock(int, int);
+void ModificarStockDevolucion(int, int, string);
 float BuscarPrecioVenta(int);
 void AgregarBitacoraUsu(Bitacora_usu); 
 void AgregarBitacoraProd(Bitacora_prod);

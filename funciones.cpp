@@ -111,4 +111,26 @@ void ModificarStock(int lote, int cantidad)
         }
     }
 }
+void ModificarStockDevolucion(int lote, int cantidad, string nombrebebida)
+{
+    for (int i = 0; i < packs.size(); i++)
+    {
+        if (lote == packs[i].lote && nombrebebida == packs[i].nombre_bebida)
+        {
+            packs[i].cantidad = packs[i].cantidad + cantidad;
+        }
+    }
+}
+float BuscarPrecioVenta(int lote)
+{
+    float contadorventa;
+    for (Bebida bebida : packs)
+    {
+        if (lote == bebida.lote)
+        {
+            contadorventa = bebida.precio_venta;
+        }
+    }
+    return contadorventa;
+}
 
