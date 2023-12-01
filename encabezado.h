@@ -19,7 +19,7 @@ struct Usuarios
 };
 
 void InicializarUsuarios();
-
+int BuscarUsuario();
 
 
 #endif // FUNCIONES_H
