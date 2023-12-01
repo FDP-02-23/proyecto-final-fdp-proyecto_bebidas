@@ -114,3 +114,12 @@ void ModificarUsuario(string nombreUsuario) // Funcion que se encarga de modific
     }
     cout << " No se ha encontrado el usuario!" << endl;
 }
+void ImprimirUsuarios()
+{
+    cout << " Usuarios existentes: " << endl;
+    for (Usuarios imprimir : usuario)
+    {
+        cout << " > " << imprimir.usuario << endl;
+    }
+    cout << endl;
+}
