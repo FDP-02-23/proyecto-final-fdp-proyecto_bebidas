@@ -82,6 +82,82 @@ int main()
                     case 1: 
                     cout << "------- MANEJO DE USUARIOS ------- " << endl;
                     cout << endl;
+                    cout << "Opciones: " << endl;
+                        cout << " (1) Agregar usuarios" << endl;
+                        cout << " (2) Mostrar usuarios existentes" << endl;
+                        cout << " (3) Modificar usuarios existentes" << endl;
+                        cout << " (4) Eliminar usuarios existentes" << endl;
+                        cout << " (5) Regresar al menu anterior" << endl;
+                        cout << " >";
+                        cin >> opcion1;
+                        cout << endl;
+
+                        do
+                        {
+                            switch (opcion1)
+                            {
+                            case 1:
+                                cout << " Ingrese el nombre de usuario: ";
+                                cin >> usuarios.usuario;
+                                cout << " Ingrese una clave: ";
+                                cin >> usuarios.contrasenia;
+                                cout << endl;
+                                cout << " Ingrese el tipo de usuario:\n (1) Si es administrador\n (2) Si es empleado\n >";
+                                cin >> usuarios.tipo_usuario;
+                                cout << endl;
+
+                                if (usuarios.tipo_usuario != 1 && usuarios.tipo_usuario != 2)
+                                {
+                                    cout << "Tipo de usuario no valido!" << endl;
+                                    regresarmenuusu = 1;
+                                    regresar = 0;
+                                }
+                                else
+                                {
+                                    AgregarUsuarios(usuarios);
+                                    regresarmenuusu = 1;
+                                    regresar = 0;
+                                }
+                                break;
+                            case 2:
+                                ImprimirUsuarios();
+                                regresarmenuusu = 1;
+                                regresar = 0;
+                                break;
+                            case 3:
+                                ImprimirUsuarios();
+                                cout << " Ingrese el nombre del usuario a modificar: ";
+                                cin >> usuarios.usuario;
+
+                                ModificarUsuario(usuarios.usuario);
+
+                                break;
+                            case 4:
+                                ImprimirUsuarios();
+                                cout << " Ingrese el nombre de usuario a eliminar: ";
+                                cin >> usuarios.usuario;
+
+                                EliminarUsuario(usuarios.usuario);
+                                cout << endl;
+                                regresarmenuusu = 1;
+                                regresar = 0;
+                                break;
+                            case 5:
+                                regresarmenuusu = 1;
+                                regresar = 1;
+                                contador = 0;
+                                break;
+                            default:
+                                cout << "Opcion no valida! Regresando..." << endl;
+                                cout << endl;
+                                regresarmenuusu = 1;
+                                regresar = 1;
+                                break;
+                            }
+                            system("pause");
+
+                        } while (regresarmenuusu == 0);
+                        break;
                     break; 
 
                     // Opcion 2 de menu Administrador
