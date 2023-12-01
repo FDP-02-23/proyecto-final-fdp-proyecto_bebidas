@@ -504,6 +504,145 @@ int main()
                         case 2: 
                         cout << endl;
                         cout << "----- MANEJO DE VENTAS ----- " << endl;
+                        cout << endl;
+                        cout << "Opciones: " << endl;
+                        cout << " (1) Agregar venta" << endl;
+                        cout << " (2) Eliminar una venta" << endl;
+                        cout << " (3) Regresar al menu anterior\n >";
+                        cin >> opcion1;
+
+                        do
+                        {
+                            cin.ignore();
+                            switch (opcion1)
+                            {
+                            case 1:
+                                ImprimirBebidas();
+                                cout << endl;
+                                cout << "      DATOS NECESARIOS DEL CLIENTE  " << endl;
+                                cout << "***************************************" << endl;
+                                cout << endl;
+                                cout << "  Ingrese el nombre de la bebida: ";
+                                getline(cin, ventas.nombre_bebida);
+                                cout << endl;
+
+                                int packs6, packs12, packs24, lote;
+
+                                packs6 = BuscarBebidapack6(ventas.nombre_bebida);
+                                packs12 = BuscarBebidapack12(ventas.nombre_bebida);
+                                packs24 = BuscarBebidapack24(ventas.nombre_bebida);
+                                cout << endl;
+
+                                cout << "  Tipos de packs disponibles" << endl;
+                                cout << "   Disponibles " << packs6 << "  packs de 6 botellas" << endl;
+                                cout << "   Disponibles " << packs12 << " packs de 12 botellas" << endl;
+                                cout << "   Disponibles " << packs24 << " packs de 24 botellas" << endl;
+                                cout << endl;
+
+                                int packs;
+                                float preciofinal;
+
+                                cout << "  N. lote: ";
+                                cin >> ventas.lote;
+                                packs = BuscarBebidaPack(ventas.lote, ventas.nombre_bebida);
+                                preciofinal = BuscarPrecioVenta(ventas.lote);
+
+                                if (packs == 0)
+                                {
+                                    cout << " Ingrese un numero de lote existente! " << endl;
+                                    regresarmenuven = 1;
+                                    regresar = 0;
+                                }
+                                else
+                                {
+                                    cout << "  Cantidad de packs: ";
+                                    cin >> ventas.cantidad;
+
+                                    cin.ignore();
+                                    if (packs < ventas.cantidad)
+                                    {
+                                        cout << " No tiene esa cantidad en el stock!" << endl;
+                                    }
+                                    else
+                                    {
+                                        cout << "  Nombre de el consumidor: ";
+                                        getline(cin, ventas.nombre_consumidor);
+                                        cout << endl;
+                                        cout << " Total a pagar: $" << (preciofinal * ventas.cantidad) << endl;
+                                        ventas.precio_total = (preciofinal * ventas.cantidad);
+                                        cout << endl;
+                                        system("cls");
+                                        cout << endl;
+                                        cout << "----------------------- RECIBO DE CLIENTE ---" << endl;
+                                        identificador = identificador + 1;
+                                        ventas.identificador = identificador;
+                                        ventas.fecha = GetCurrentDate();
+                                        AgregarVenta(ventas);
+                                        ImprimirVentas();
+                                        ModificarStock(ventas.lote, ventas.cantidad);
+                                        RegistrarVenta(ventas); // Crea el archivo de Registro Ventas
+                                        //Llenamos bitacora
+                                        bitacoraven.accion = "Se agrego una venta";
+                                        bitacoraven.usuario = nombre_usuario;
+                                        bitacoraven.venta_afectada = ventas.nombre_bebida;
+                                        bitacoraven.ventas.cantidad = ventas.cantidad;
+                                        bitacoraven.ventas.identificador = identificador;
+                                        bitacoraven.ventas.fecha = ventas.fecha;
+                                        bitacoraven.ventas.lote = ventas.lote;
+                                        bitacoraven.ventas.nombre_bebida = ventas.nombre_bebida;
+                                        bitacoraven.ventas.nombre_consumidor = ventas.nombre_consumidor;
+                                        bitacoraven.ventas.precio_total = ventas.precio_total;
+                                        bitacoraven.fecha = GetCurrentDate();
+                                        AgregarBitacoraVen(bitacoraven);
+                                        regresarmenuven = 1;
+                                        regresar = 0;
+                                    }
+                                }
+                                break;
+                            case 2:
+                                ImprimirVentas();
+                                int cantidad;
+                                int lote_producto;
+                                cout << " Ingrese el nombre de la bebida: ";
+                                getline(cin, ventas.nombre_bebida);
+                                cout << " Ingrese el numero de ID de la venta: ";
+                                cin >> ventas.identificador;
+
+                                lote_producto = BuscarLote(ventas.identificador);
+                                cantidad = BuscarCantidadVenta(ventas.identificador);
+
+                                EliminarVenta(ventas.nombre_bebida, ventas.identificador);
+
+                                ModificarStockDevolucion(lote_producto, cantidad, ventas.nombre_bebida);
+                                //Llenamos bitacora
+                                bitacoraven.accion = "Se elimino una venta";
+                                bitacoraven.usuario = nombre_usuario;
+                                bitacoraven.venta_afectada = ventas.nombre_bebida;
+                                bitacoraven.ventas.cantidad = ventas.cantidad;
+                                bitacoraven.ventas.identificador = identificador;
+                                bitacoraven.ventas.fecha = ventas.fecha;
+                                bitacoraven.ventas.lote = ventas.lote;
+                                bitacoraven.ventas.nombre_bebida = ventas.nombre_bebida;
+                                bitacoraven.ventas.nombre_consumidor = ventas.nombre_consumidor;
+                                bitacoraven.ventas.precio_total = ventas.precio_total;
+                                bitacoraven.fecha = GetCurrentDate();
+                                AgregarBitacoraVen(bitacoraven);
+                                regresarmenuven = 1;
+                                regresar = 0;
+                                break;
+                            case 3:
+                                regresarmenuven = 1;
+                                regresar = 1;
+                                contador = 0;
+                                break;
+                            default:
+                                cout << "Opcion no valida!";
+                                regresarmenuven = 1;
+                                regresar = 0;
+                                break;
+                            }
+                            system("pause");
+                        } while (regresarmenuven == 0);
                         break; 
 
                         // Opcion 3 del menu Usuario Administrador
