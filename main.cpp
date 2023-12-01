@@ -269,6 +269,41 @@ int main()
                         case 1:
                         cout << endl;
                         cout << "----- MANEJO DE PRODUCTOS ----- " << endl;
+                        cout << endl;
+                        cout << "Opciones: " << endl;
+                        cout << " (1) Agregar productos" << endl;
+                        cout << " (2) Mostrar productos existentes" << endl;
+                        cout << " (3) Modificar productos existentes" << endl;
+                        cout << " (4) Eliminar productos existentes" << endl;
+                        cout << " (5) Regresar al menu anterior\n >";
+                        cin >> opcion1;
+                        cout << endl;
+
+                        do
+                        {
+                            cin.ignore(); 
+                            switch (opcion1)
+                            {
+                                case 1: 
+                                break; 
+
+                                case 2: 
+                                break; 
+
+                                case 3: 
+                                break; 
+
+                                case 4: 
+                                break; 
+
+                                case 5: 
+                                break; 
+                                
+                            default:
+                                break;
+                            }
+                            system("pause"); 
+                        } while(regresarmenupro == 0);
                         break;
 
                         // Opcion 2 del menu Usuario Administrador 2
