@@ -30,5 +30,44 @@ int main()
     int lote = 0;            // Variable que sirve como identificador cada producto, generada automaticamente
     int identificador = 0;   // Variable que sirve como identificador unico cada venta
 
+    // Insertar datos vector usuarios, administrador
+    usuario.push_back({"admin123", "123", 1});
+    usuario.push_back({"admin456", "456", 1});
+    usuario.push_back({"admin789", "789", 2});
+
+    do
+    {
+        system("cls");
+        // Encabezado del sistema
+        cout << endl;
+        cout << "                ------PEPITO'S------" << endl;
+        cout << "   ------- TIENDA DISTRIBUIDORA DE BEBIDAS -------" << endl;
+        cout << endl;
+        cout << "        En vez de una, llevate varias" << endl;
+        cout << endl;
+        cout << "*************************************************" << endl;
+        
+         // Llamamiento a la funcion de buscar usuario, encargada de verificar si es admin o empleado
+        tipo_usuario = BuscarUsuario();
+
+        do
+        { // Do while el funcionamiento de regresar a menus anteriores
+            system("cls");
+            cout << endl;     
+            switch (tipo_usuario)
+            {
+                case 1: 
+
+                break; 
+
+                case 2: 
+
+                break; 
+
+            default:
+                break;
+            }
+        } while(contador == 0);
+    } while(sesion == 0);
     return 0;
 }
