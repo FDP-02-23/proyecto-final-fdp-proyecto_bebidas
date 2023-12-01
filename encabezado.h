@@ -22,6 +22,8 @@ void InicializarUsuarios();
 int BuscarUsuario();
 void AgregarUsuarios(Usuarios);
 void ModificarUsuario(string);
+void ImprimirUsuarios();
+
 
 
 #endif // FUNCIONES_H
