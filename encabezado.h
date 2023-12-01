@@ -10,6 +10,14 @@
 
 using namespace std;
 
+struct Usuarios
+{
+    string usuario;
+    string contrasenia;
+    int tipo_usuario;
+    string usuario_creacion;
+};
+
 
 
 #endif // FUNCIONES_H
