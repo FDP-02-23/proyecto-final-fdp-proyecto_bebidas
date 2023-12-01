@@ -26,7 +26,7 @@ void ImprimirBebidas()
         cout << bebida.nombre_bebida << endl;
         cout << "  Numero de lote: " << bebida.lote << endl;
         cout << "  Tipo de pack: " << bebida.tipo_bebida << endl;
-        cout << "  Precio total de compra invertido: $" << bebida.precio << endl;
+        cout << "  Monto total de compra invertido: $" << bebida.precio << endl;
         cout << "  Cantidad de packs comprados: " << bebida.cantidad << endl;
         cout << "  Precio de venta por pack sera de: $" << bebida.precio_venta << endl;
     }
