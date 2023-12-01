@@ -88,6 +88,15 @@ int main()
                     case 1: 
                     cout << "------- MANEJO DE USUARIOS ------- " << endl;
                     cout << endl;
+                    cout << "Opciones: " << endl;
+                    cout << " (1) Agregar usuarios" << endl;
+                    cout << " (2) Mostrar usuarios existentes" << endl;
+                    cout << " (3) Modificar usuarios existentes" << endl;
+                    cout << " (4) Eliminar usuarios existentes" << endl;
+                    cout << " (5) Regresar al menu anterior" << endl;
+                    cout << " >";
+                    cin >> opcion1;
+                    cout << endl;
                     do
                         {
                         switch (opcion1)
