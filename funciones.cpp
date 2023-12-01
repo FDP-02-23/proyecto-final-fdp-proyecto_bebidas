@@ -65,8 +65,9 @@ void AgregarVenta(Ventas nuevaVenta)
 {
     venta.push_back(nuevaVenta);
 }
-void EliminarVenta(string nombreBebida, int identificador)
+int EliminarVenta(string nombreBebida, int identificador)
 {
+    int eliminado = 0;
     for (int i = 0; i < venta.size(); i++)
     {
         if (nombreBebida == venta[i].nombre_bebida && identificador == venta[i].identificador)
@@ -74,7 +75,8 @@ void EliminarVenta(string nombreBebida, int identificador)
             venta.erase(venta.begin() + i);
             cout << " Venta eliminada correctamente y stock actualizado" << endl;
             cout << endl;
-            return;
+            eliminado = 1;
+            return eliminado;
         }
     }
     cout << " No se ha encotrado la bebida! Ingresar bien el nombre o el lote" << endl;
@@ -206,13 +208,14 @@ int BuscarLote(int identificador)
     return lote;
 }
 // Buscar y modificar una bebida existente
-void BuscaryModificarBebida(string nombreBebida, int lote)
+int BuscaryModificarBebida(string nombreBebida, int lote)
 {
     string nuevoNombre;
     int nuevoTipo;
     float nuevoPrecio;
     int nuevaCantidad;
     float nuevoPrecioVenta;
+    int modificado = 0;
 
     for (int i = 0; i < packs.size(); i++)
     {
@@ -238,20 +241,23 @@ void BuscaryModificarBebida(string nombreBebida, int lote)
 
             cout << endl;
             cout << " Bebida modificada exitosamente" << endl;
-            return;
+            modificado = 1;
+            return modificado;
         }
     }
     cout << " No se ha encontrado la bebida!" << endl;
 }
 // Eliminar bebida existente
-void EliminarBebida(string nombreBebida, int lote)
+int EliminarBebida(string nombreBebida, int lote)
 {
+    int eliminado = 0;
     for (int i = 0; i < packs.size(); i++)
     {
         if (nombreBebida == packs[i].nombre_bebida && lote == packs[i].lote)
         {
             packs.erase(packs.begin() + i);
-            return;
+            eliminado = 1;
+            return eliminado;
         }
     }
     cout << " No se ha encotrado la bebida! Ingrese bien el nombre o el lote" << endl;
@@ -330,8 +336,9 @@ void AgregarUsuarios(Usuarios nuevoUsuario)
     cout << endl;
     return;
 }
-void ModificarUsuario(string nombreUsuario) // Funcion que se encarga de modificar al usuario
+int ModificarUsuario(string nombreUsuario) // Funcion que se encarga de modificar al usuario
 {
+    int modificado = 0;
     string nuevoNombre;
     string contrasenia;
     int tipo;
@@ -355,8 +362,9 @@ void ModificarUsuario(string nombreUsuario) // Funcion que se encarga de modific
             usuario[i].tipo_usuario = tipo;
 
             cout << " Usuario modificado exitosamente\n";
+            modificado = 1;
             cout << endl;
-            return;
+            return modificado;
         }
     }
     cout << " No se ha encontrado el usuario!" << endl;
@@ -370,15 +378,17 @@ void ImprimirUsuarios()
     }
     cout << endl;
 }
-void EliminarUsuario(string usuarioEliminar)
+int EliminarUsuario(string usuarioEliminar)
 {
+    int eliminado = 0;
     for (int i = 0; i < usuario.size(); i++)
     {
         if (usuarioEliminar == usuario[i].usuario)
         {
             usuario.erase(usuario.begin() + i);
             cout << " Usuario eliminado correctamente" << endl;
-            return;
+            eliminado = 1;
+            return eliminado;
         }
     }
     cout << "El usuario no existe!" << endl;
@@ -606,8 +616,8 @@ void ImprimirBitacoraVen(string nombre)
                 if (bitacora.venta_afectada == bitacora.ventas.nombre_bebida)
                 {
                     cout << "*******************Detalles**********************" << endl;
-                    cout << "El numero de venta es: $" << bitacora.ventas.identificador << endl;
-                    cout << "El nombre del consumidor es: $" << bitacora.ventas.nombre_consumidor << endl;
+                    cout << "El numero de venta es: " << bitacora.ventas.identificador << endl;
+                    cout << "El nombre del consumidor es: " << bitacora.ventas.nombre_consumidor << endl;
                     cout << "El producto vendido fue el: " << bitacora.venta_afectada << endl;
                     cout << "El numero de lote utilizado fue: " << bitacora.ventas.lote << endl;
                     cout << "La cantidad vendida fue de: " << bitacora.ventas.cantidad << endl;
@@ -620,8 +630,8 @@ void ImprimirBitacoraVen(string nombre)
                 if (bitacora.venta_afectada == bitacora.ventas.nombre_bebida)
                 {
                     cout << "*******************Detalles**********************" << endl;
-                    cout << "El numero de venta fue: $" << bitacora.ventas.identificador << endl;
-                    cout << "El nombre del consumidor fue: $" << bitacora.ventas.nombre_consumidor << endl;
+                    cout << "El numero de venta fue: " << bitacora.ventas.identificador << endl;
+                    cout << "El nombre del consumidor fue: " << bitacora.ventas.nombre_consumidor << endl;
                     cout << "El producto vendido fue el: " << bitacora.venta_afectada << endl;
                     cout << "El numero de lote utilizado fue: " << bitacora.ventas.lote << endl;
                     cout << "La cantidad vendida fue de: " << bitacora.ventas.cantidad << endl;
@@ -632,5 +642,17 @@ void ImprimirBitacoraVen(string nombre)
         }
     }
     cout << "\n\n" << endl;
+}
+int BuscarCantidadVenta(int identificador)
+{
+    int cantidad = 0;
+    for (Ventas ventas : venta)
+    {
+        if (identificador == ventas.identificador)
+        {
+            cantidad = ventas.cantidad;
+        }
+    }
+    return cantidad;
 }
 
