@@ -6,7 +6,6 @@
 #include <ctime>
 #include <string>
 
-#include <string>
 
 using namespace std;
 //Declaraciones de estructuras a utilizar
