@@ -37,3 +37,17 @@ void AgregarVenta(Ventas nuevaVenta)
 {
     venta.push_back(nuevaVenta);
 }
+void EliminarVenta(string nombreBebida, int identificador)
+{
+    for (int i = 0; i < venta.size(); i++)
+    {
+        if (nombreBebida == venta[i].nombre_bebida && identificador == venta[i].identificador)
+        {
+            venta.erase(venta.begin() + i);
+            cout << " Venta eliminada correctamente y stock actualizado" << endl;
+            cout << endl;
+            return;
+        }
+    }
+    cout << " No se ha encotrado la bebida! Ingresar bien el nombre o el lote" << endl;
+}
