@@ -57,11 +57,37 @@ int main()
             switch (tipo_usuario)
             {
                 case 1: 
+                // Menu principal Administrador
+                cout << GetCurrentDate() << endl;
+                cout << "***************************************" << endl;
+                cout << "   ----- JEFE ADMINISTRADOR ----- " << endl;
+                cout << "***************************************";
+                cout << endl;
+                cout << "Opciones: " << endl;
+                cout << " (1) Manejo de usuarios" << endl;
+                cout << " (2) Manejo de productos" << endl;
+                cout << " (3) Registro de ventas diarias" << endl;
+                cout << " (4) Mostrar bitacora" << endl;
+                cout << " (5) Cerrar sesion\n >";
+                cin >> opcion;
+                cin.ignore();
+                cout << endl;
 
                 break; 
 
                 case 2: 
-
+                // Menu principal Usuario Administrador 2
+                cout << GetCurrentDate() << endl;
+                cout << "***************************************" << endl;
+                cout << "  ----- EMPLEADO ADMINISTRADOR -----" << endl;
+                cout << "***************************************";
+                cout << endl;
+                cout << "Opciones: " << endl;
+                cout << " (1) Manejo de productos" << endl;
+                cout << " (2) Manejo de ventas" << endl;
+                cout << " (3) Cerrar sesion\n >";
+                cin >> opcion;
+                cout << endl;
                 break; 
 
             default:
