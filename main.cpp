@@ -293,7 +293,6 @@ int main()
                                 int modificadob;
                                 cout << "Ingrese el nombre de la bebida: ";
                                 getline(cin, bebida.nombre_bebida);
-                                cin.ignore();
                                 cout << "Ingrese el numero de lote: ";
                                 cin >> bebida.lote;
 
@@ -408,7 +407,7 @@ int main()
                     }
                     else if (sesion == 1)
                     {
-                        cout << "  Sesion manetenida" << endl;
+                        cout << "  Sesion mantenida" << endl;
                         contador = 0;
                         regresar = 1;
                     }
@@ -673,6 +672,8 @@ int main()
                                     if (packs < ventas.cantidad)
                                     {
                                         cout << " No tiene esa cantidad en el stock!" << endl;
+                                        regresarmenuven = 1;
+                                        regresar = 0;
                                     }
                                     else
                                     {

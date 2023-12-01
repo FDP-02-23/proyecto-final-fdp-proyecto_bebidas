@@ -616,8 +616,8 @@ void ImprimirBitacoraVen(string nombre)
                 if (bitacora.venta_afectada == bitacora.ventas.nombre_bebida)
                 {
                     cout << "*******************Detalles**********************" << endl;
-                    cout << "El numero de venta es: $" << bitacora.ventas.identificador << endl;
-                    cout << "El nombre del consumidor es: $" << bitacora.ventas.nombre_consumidor << endl;
+                    cout << "El numero de venta es: " << bitacora.ventas.identificador << endl;
+                    cout << "El nombre del consumidor es: " << bitacora.ventas.nombre_consumidor << endl;
                     cout << "El producto vendido fue el: " << bitacora.venta_afectada << endl;
                     cout << "El numero de lote utilizado fue: " << bitacora.ventas.lote << endl;
                     cout << "La cantidad vendida fue de: " << bitacora.ventas.cantidad << endl;
@@ -630,8 +630,8 @@ void ImprimirBitacoraVen(string nombre)
                 if (bitacora.venta_afectada == bitacora.ventas.nombre_bebida)
                 {
                     cout << "*******************Detalles**********************" << endl;
-                    cout << "El numero de venta fue: $" << bitacora.ventas.identificador << endl;
-                    cout << "El nombre del consumidor fue: $" << bitacora.ventas.nombre_consumidor << endl;
+                    cout << "El numero de venta fue: " << bitacora.ventas.identificador << endl;
+                    cout << "El nombre del consumidor fue: " << bitacora.ventas.nombre_consumidor << endl;
                     cout << "El producto vendido fue el: " << bitacora.venta_afectada << endl;
                     cout << "El numero de lote utilizado fue: " << bitacora.ventas.lote << endl;
                     cout << "La cantidad vendida fue de: " << bitacora.ventas.cantidad << endl;
