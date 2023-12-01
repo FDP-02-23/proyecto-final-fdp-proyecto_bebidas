@@ -285,6 +285,8 @@ int main()
                             case 2: 
                             // Mostrar bebidas existentes disponibles
                                 ImprimirBebidas();
+                                regresarmenupro = 1;
+                                regresar = 0;
                                 break; 
 
                             case 3: 
@@ -528,6 +530,8 @@ int main()
                                 case 2: 
                                 // Opcion 2 menu
                                 ImprimirBebidas();
+                                regresarmenupro = 1;
+                                regresar = 0;
                                 break; 
 
                                 case 3: 
