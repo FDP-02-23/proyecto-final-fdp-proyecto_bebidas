@@ -649,9 +649,29 @@ int main()
                         case 3: 
                         cout << endl;
                         cout << " De verdad desea cerrar sesion? Si (0), No (1)" << endl;
+                        cin >> sesion;
+                        if (sesion == 0)
+                        {
+                            cout << " Ha cerrado sesion" << endl;
+                            contador = 1;
+                            regresar = 1;
+                        }
+                        else if (sesion == 1)
+                        {
+                            cout << " Sesion mantenida" << endl;
+                            contador = 0;
+                            regresar = 1;
+                        }
+                        else
+                        {
+                            sesion = 0;
+                            cout << "Opcion no valida! Cerrando sesion..." << endl;
+                            cout << endl;
+                            contador = 1;
+                            regresar = 1;
+                        }
                         break; 
-
-                    default:
+                        default:
                         cout << " Ingrese una opcion valida!" << endl;
                         cout << endl;
                         regresar = 1;
