@@ -18,6 +18,8 @@ struct Usuarios
     string usuario_creacion;
 };
 
+void InicializarUsuarios();
+
 
 
 #endif // FUNCIONES_H
