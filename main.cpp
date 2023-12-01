@@ -329,10 +329,12 @@ int main()
                                 break; 
 
                                 case 2: 
+                                // Opcion 2 menu
                                 ImprimirBebidas();
                                 break; 
 
                                 case 3: 
+                                // Opcion 3 menu 
                                 ImprimirBebidas();
                                 cout << " Ingrese el nombre de la bebida: ";
                                 getline(cin, bebida.nombre_bebida);
@@ -344,12 +346,33 @@ int main()
                                 break; 
 
                                 case 4: 
+                                // Opcion 4 menu 
+                                ImprimirBebidas();
+                                cout << " Ingrese el nombre de la bebida a eliminar: ";
+                                getline(cin, bebida.nombre_bebida);
+                                cout << " Ingrese el numero de lote: ";
+                                cin >> bebida.lote;
+
+                                EliminarBebida(bebida.nombre_bebida, bebida.lote);
+                                cout << endl; 
+                                cout << " Bebida eliminada correctamente" << endl;
+                                cout << endl;
+                                regresarmenupro = 1;
+                                regresar = 0;
                                 break; 
 
                                 case 5: 
+                                // Regrasar al menu anterior
+                                regresarmenupro = 1;
+                                regresar = 1;
+                                contador = 0;
                                 break; 
 
                             default:
+                                cout << "Opcion no valida! Regresando..." << endl;
+                                cout << endl;
+                                regresarmenupro = 1;
+                                regresar = 0;
                                 break;
                             }
                             system("pause"); 
