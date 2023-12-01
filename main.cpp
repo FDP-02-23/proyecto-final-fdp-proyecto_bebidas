@@ -638,6 +638,9 @@ int main()
                                 cout << "   Disponibles " << packs24 << " packs de 24 botellas" << endl;
                                 cout << endl;
 
+                                cout << "Su numero de lotes comprados son los siguientes:" << endl;
+                                ImprimirLotes(ventas.nombre_bebida);
+
                                 int packs;
                                 float preciofinal;
 
