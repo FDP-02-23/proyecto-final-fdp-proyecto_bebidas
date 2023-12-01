@@ -57,14 +57,243 @@ int main()
             switch (tipo_usuario)
             {
                 case 1: 
+                // Menu principal Administrador
+                cout << GetCurrentDate() << endl;
+                cout << "***************************************" << endl;
+                cout << "   ----- JEFE ADMINISTRADOR ----- " << endl;
+                cout << "***************************************";
+                cout << endl;
+                cout << "Opciones: " << endl;
+                cout << " (1) Manejo de usuarios" << endl;
+                cout << " (2) Manejo de productos" << endl;
+                cout << " (3) Registro de ventas diarias" << endl;
+                cout << " (4) Mostrar bitacora" << endl;
+                cout << " (5) Cerrar sesion\n >";
+                cin >> opcion;
+                cin.ignore();
+                cout << endl;
+                do
+                {
+                    system("cls");
+                    cout << endl;
+                    switch (opcion)
+                    {
+                    // Opcion 1 de menu Administrador
+                    case 1: 
+                    cout << "------- MANEJO DE USUARIOS ------- " << endl;
+                    cout << endl;
+                    break; 
 
+                    // Opcion 2 de menu Administrador
+                    case 2: 
+                    cout << "----- MANEJO DE PRODUCTOS ----- " << endl;
+                    cout << endl;
+                    cout << "Opciones: " << endl;
+                    cout << " (1) Agregar productos" << endl;
+                    cout << " (2) Mostrar productos existentes" << endl;
+                    cout << " (3) Modificar productos existentes" << endl;
+                    cout << " (4) Eliminar productos existentes" << endl;
+                    cout << " (5) Regresar al menu anterior\n >";
+                    cin >> opcion1;
+                    cout << endl;
+
+                    do
+                    {
+                        cin.ignore(); 
+                        switch (opcion1)
+                        {
+                            case 1: 
+                            // Agregar productos/bebidas nuevas
+
+                                // Lote es el campo oculto que se llenara automaticamente sin pedir ingreso
+                                cout << " Ingrese el nombre de la bebida: ";
+                                getline(cin, bebida.nombre_bebida);
+                                cout << endl;
+                                cout << " Tipos de packs: " << endl;
+                                cout << "   (1) Pack de 6 botellas" << endl;
+                                cout << "   (2) Pack de 12 botellas" << endl;
+                                cout << "   (3) Pack de 24 botellas" << endl;
+                                cout << endl;
+                                cout << "  Ingrese el tipo de pack que ha comprado: ";
+                                cin >> bebida.tipo_bebida;
+
+                                // Verificar si el tipo pack es diferente a 1, 2 o 3, si lo es, requerir un valor valido
+                                if (bebida.tipo_bebida != 1 && bebida.tipo_bebida != 2 && bebida.tipo_bebida != 3)
+                                {
+                                    cout << " Ingrese una opcion valida!\n"
+                                    cout << endl;
+                                    regresarmenupro = 1;
+                                    regresar = 0;
+                                }
+                                else
+                                {
+                                    cout << "  Ingrese el monto total de lo invertido en la compra: $";
+                                    cin >> bebida.precio;
+                                    cout << "  Ingrese la cantidad de packs que se compro: ";
+                                    cin >> bebida.cantidad;
+                                    cout << endl;
+                                    cout << " El precio por pack es de $" << (bebida.precio / bebida.cantidad) << endl;
+                                    cout << " Le sugerimos ingresar un monto mayor para generar ganancia." << endl;
+                                    cout << " Ingrese el costo de venta por pack: $";
+                                    cin >> bebida.precio_venta;
+                                    cout << endl;
+                                    lote = lote + 1;
+                                    bebida.lote = lote;
+                                    AgregarBebida(bebida);
+                                    cout << " Producto ingresado exitosamente\n";
+                                    cout << endl;
+                                    regresarmenupro = 1;
+                                    regresar = 0;
+                                }
+                                break; 
+
+                            case 2: 
+                            // Mostrar bebidas existentes disponibles
+                                ImprimirBebidas();
+                                break; 
+
+                            case 3: 
+                            // Modificar bebidas existentes
+                                ImprimirBebidas();
+                                cout << "Ingrese el nombre de la bebida: ";
+                                getline(cin, bebida.nombre_bebida);
+                                cin.ignore();
+                                cout << "Ingrese el numero de lote: ";
+                                cin >> bebida.lote;
+
+                                BuscaryModificarBebida(bebida.nombre_bebida, bebida.lote);
+                                cout << endl;
+                                regresar = 0;
+                                break; 
+
+                            case 4: 
+                            // Opcion eliminar bebida existente
+                                ImprimirBebidas();
+                                cout << " Ingrese el nombre de la bebida a eliminar: ";
+                                getline(cin, bebida.nombre_bebida);
+                                cout << " Ingrese el numero de lote: ";
+                                cin >> bebida.lote;
+                                EliminarBebida(bebida.nombre_bebida, bebida.lote);
+                                cout << endl;
+                                cout << " Bebida eliminada correctamente" << endl;
+                                break; 
+
+                            case 5: 
+                            // Regresar al menu 
+                                regresarmenupro = 1;
+                                regresar = 1;
+                                contador = 0;
+                                break; 
+
+                        default:
+                            cout << "Opcion no valida! Regresando..." << endl;
+                            cout << endl;
+                            regresarmenupro = 1;
+                            regresar = 0;
+                            break;
+                        }
+                        system("pause"); 
+                    } while(regresarmenupro == 0);
+                    break; 
+
+                    // Opcion 3 del menu Administrador
+                    case 3: 
+                    cout << endl; 
+                    cout << "----- REGISTRO DE VENTAS DIARIAS ----- " << endl;
+                    break; 
+
+                    // Opcion 4 del menu Administrador
+                    case 4: 
+                    cout << "---------- BITACORA ---------- " << endl;
+                    system("pause");
+                    regresar = 1;
+                    break; 
+
+                     // Opcion 5 del menu Administrador
+                    case 5: 
+                        cout << "De verdad desea cerrar sesion? Si (0), No (1)  \n > ";
+                        cin >> sesion;
+                        cout << endl;
+                        if (sesion == 0)
+                        {
+                            cout << " Ha cerrado sesion" << endl;
+                            contador = 1;
+                            regresar = 1;
+                        }
+                        else if (sesion == 1)
+                        {
+                            cout << "  Sesion manetenida" << endl;
+                            contador = 0;
+                            regresar = 1;
+                        }
+                        else
+                        {
+                            sesion = 0;
+                            cout << "Opcion no valida! Cerrado sesion..." << endl;
+                            contador = 1;
+                            regresar = 1;
+                        }
+                        system("pause");
+                    break;
+                    system("cls");
+
+                    default:
+                        cout << "Ingrese una opcion valida! " << endl;
+                        cout << endl;
+                        regresar = 1;
+                        contador = 0;
+                        break;
+                    }
+                } while(regresar == 0);
                 break; 
 
+                // Menu principal Usuario Administrador 2
                 case 2: 
+                cout << GetCurrentDate() << endl;
+                cout << "***************************************" << endl;
+                cout << "  ----- EMPLEADO ADMINISTRADOR -----" << endl;
+                cout << "***************************************";
+                cout << endl;
+                cout << "Opciones: " << endl;
+                cout << " (1) Manejo de productos" << endl;
+                cout << " (2) Manejo de ventas" << endl;
+                cout << " (3) Cerrar sesion\n >";
+                cin >> opcion;
+                cout << endl;
+                do
+                {
+                    system("cls");
+                    switch (opcion)
+                    {
+                        // Opcion 1 del menu Usuario Administrador 2
+                        case 1:
+                        cout << endl;
+                        cout << "----- MANEJO DE PRODUCTOS ----- " << endl;
+                        break;
 
+                        // Opcion 2 del menu Usuario Administrador 2
+                        case 2: 
+                        cout << endl;
+                        cout << "----- MANEJO DE VENTAS ----- " << endl;
+                        break; 
+
+                        // Opcion 3 del menu Usuario Administrador
+                        case 3: 
+                        cout << endl;
+                        cout << " De verdad desea cerrar sesion? Si (0), No (1)" << endl;
+                        break; 
+
+                    default:
+                        cout << " Ingrese una opcion valida!" << endl;
+                        cout << endl;
+                        regresar = 1;
+                        contador = 0;
+                        break;
+                    }
+                } while(regresar == 0);
                 break; 
-
             default:
+
                 break;
             }
         } while(contador == 0);
