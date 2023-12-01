@@ -85,4 +85,30 @@ void ImprimirVentas()
     }
     cout << "\n\n";
 }
+void ImprimirLotes(string nombre)
+{
+    for (Bebida bebida : packs)
+    {
+        if (nombre == bebida.nombre_bebida)
+        {
+            cout << endl;
+            cout << " El numero de lote es: " << bebida.lote << endl
+                 << " El tipo de pack es: " << bebida.tipo_bebida << endl
+                 << " La cantidad de packs comprados es de: " << bebida.cantidad << endl
+                 << " El precio de venta por pack sera de: $" << bebida.precio_venta << endl
+                 << " La ganancia por pack sera de: $" << (bebida.precio_venta - (bebida.precio / bebida.cantidad)) << endl;
+        }
+    }
+    cout << "\n\n";
+}
+void ModificarStock(int lote, int cantidad)
+{
+    for (int i = 0; i < packs.size(); i++)
+    {
+        if (lote == packs[i].lote)
+        {
+            packs[i].cantidad = packs[i].cantidad - cantidad;
+        }
+    }
+}
 
