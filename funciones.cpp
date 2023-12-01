@@ -206,13 +206,14 @@ int BuscarLote(int identificador)
     return lote;
 }
 // Buscar y modificar una bebida existente
-void BuscaryModificarBebida(string nombreBebida, int lote)
+int BuscaryModificarBebida(string nombreBebida, int lote)
 {
     string nuevoNombre;
     int nuevoTipo;
     float nuevoPrecio;
     int nuevaCantidad;
     float nuevoPrecioVenta;
+    int modificado = 0;
 
     for (int i = 0; i < packs.size(); i++)
     {
@@ -238,20 +239,23 @@ void BuscaryModificarBebida(string nombreBebida, int lote)
 
             cout << endl;
             cout << " Bebida modificada exitosamente" << endl;
-            return;
+            modificado = 1;
+            return modificado;
         }
     }
     cout << " No se ha encontrado la bebida!" << endl;
 }
 // Eliminar bebida existente
-void EliminarBebida(string nombreBebida, int lote)
+int EliminarBebida(string nombreBebida, int lote)
 {
+    int eliminado = 0;
     for (int i = 0; i < packs.size(); i++)
     {
         if (nombreBebida == packs[i].nombre_bebida && lote == packs[i].lote)
         {
             packs.erase(packs.begin() + i);
-            return;
+            eliminado = 1;
+            return eliminado;
         }
     }
     cout << " No se ha encotrado la bebida! Ingrese bien el nombre o el lote" << endl;

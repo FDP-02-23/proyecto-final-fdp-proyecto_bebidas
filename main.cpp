@@ -253,6 +253,19 @@ int main()
                                     lote = lote + 1;
                                     bebida.lote = lote;
                                     AgregarBebida(bebida);
+
+                                    //Llenamos bitacora
+                                    bitacoraprod.usuario = nombre_usuario;
+                                    bitacoraprod.accion = "Se agrego un producto";
+                                    bitacoraprod.producto_afectado = bebida.nombre_bebida;
+                                    bitacoraprod.bebida.cantidad = bebida.cantidad;
+                                    bitacoraprod.bebida.lote = lote;
+                                    bitacoraprod.bebida.nombre_bebida = bebida.nombre_bebida;
+                                    bitacoraprod.bebida.precio = bebida.precio;
+                                    bitacoraprod.bebida.precio_venta = bebida.precio_venta;
+                                    bitacoraprod.bebida.tipo_bebida = bebida.tipo_bebida;
+                                    bitacoraprod.fecha = GetCurrentDate();
+                                    AgregarBitacoraProd(bitacoraprod);
                                     cout << " Producto ingresado exitosamente\n";
                                     cout << endl;
                                     regresarmenupro = 1;
@@ -268,13 +281,30 @@ int main()
                             case 3: 
                             // Modificar bebidas existentes
                                 ImprimirBebidas();
+                                int modificadob;
                                 cout << "Ingrese el nombre de la bebida: ";
                                 getline(cin, bebida.nombre_bebida);
                                 cin.ignore();
                                 cout << "Ingrese el numero de lote: ";
                                 cin >> bebida.lote;
 
-                                BuscaryModificarBebida(bebida.nombre_bebida, bebida.lote);
+                                modificadob = BuscaryModificarBebida(bebida.nombre_bebida, bebida.lote);
+                                if (modificadob == 1)
+                                {
+                                    //Llenamos bitacora
+                                    bitacoraprod.usuario = nombre_usuario;
+                                    bitacoraprod.accion = "Se modifico un producto";
+                                    bitacoraprod.producto_afectado = bebida.nombre_bebida;
+                                    bitacoraprod.bebida.cantidad = bebida.cantidad;
+                                    bitacoraprod.bebida.lote = lote;
+                                    bitacoraprod.bebida.nombre_bebida = bebida.nombre_bebida;
+                                    bitacoraprod.bebida.precio = bebida.precio;
+                                    bitacoraprod.bebida.precio_venta = bebida.precio_venta;
+                                    bitacoraprod.bebida.tipo_bebida = bebida.tipo_bebida;
+                                    bitacoraprod.fecha = GetCurrentDate();
+                                    AgregarBitacoraProd(bitacoraprod);
+                                }
+                                
                                 cout << endl;
                                 regresar = 0;
                                 break; 
@@ -282,11 +312,28 @@ int main()
                             case 4: 
                             // Opcion eliminar bebida existente
                                 ImprimirBebidas();
+                                int eliminadob;
                                 cout << " Ingrese el nombre de la bebida a eliminar: ";
                                 getline(cin, bebida.nombre_bebida);
                                 cout << " Ingrese el numero de lote: ";
                                 cin >> bebida.lote;
-                                EliminarBebida(bebida.nombre_bebida, bebida.lote);
+                                eliminadob = EliminarBebida(bebida.nombre_bebida, bebida.lote);
+                                if (eliminadob == 1)
+                                {
+                                    //Llenamos bitacora
+                                    bitacoraprod.usuario = nombre_usuario;
+                                    bitacoraprod.accion = "Se elimino un producto";
+                                    bitacoraprod.producto_afectado = bebida.nombre_bebida;
+                                    bitacoraprod.bebida.cantidad = bebida.cantidad;
+                                    bitacoraprod.bebida.lote = lote;
+                                    bitacoraprod.bebida.nombre_bebida = bebida.nombre_bebida;
+                                    bitacoraprod.bebida.precio = bebida.precio;
+                                    bitacoraprod.bebida.precio_venta = bebida.precio_venta;
+                                    bitacoraprod.bebida.tipo_bebida = bebida.tipo_bebida;
+                                    bitacoraprod.fecha = GetCurrentDate();
+                                    AgregarBitacoraProd(bitacoraprod);
+                                }
+                                
                                 cout << endl;
                                 cout << " Bebida eliminada correctamente" << endl;
                                 break; 
@@ -452,6 +499,18 @@ int main()
                                     bebida.lote = lote;
                                     AgregarBebida(bebida);
                                     cout << " Producto ingresado exitosamente" << endl;
+                                    //Llenamos bitacora
+                                    bitacoraprod.usuario = nombre_usuario;
+                                    bitacoraprod.accion = "Se agrego un producto";
+                                    bitacoraprod.producto_afectado = bebida.nombre_bebida;
+                                    bitacoraprod.bebida.cantidad = bebida.cantidad;
+                                    bitacoraprod.bebida.lote = lote;
+                                    bitacoraprod.bebida.nombre_bebida = bebida.nombre_bebida;
+                                    bitacoraprod.bebida.precio = bebida.precio;
+                                    bitacoraprod.bebida.precio_venta = bebida.precio_venta;
+                                    bitacoraprod.bebida.tipo_bebida = bebida.tipo_bebida;
+                                    bitacoraprod.fecha = GetCurrentDate();
+                                    AgregarBitacoraProd(bitacoraprod);
                                     cout << endl;
                                     regresarmenupro = 1;
                                     regresar = 0;
@@ -464,13 +523,31 @@ int main()
                                 break; 
 
                                 case 3: 
-                                // Opcion 3 menu 
                                 ImprimirBebidas();
-                                cout << " Ingrese el nombre de la bebida: ";
+                                int modificadob;
+                                cout << "Ingrese el nombre de la bebida: ";
                                 getline(cin, bebida.nombre_bebida);
-                                cout << " Ingrese el numero de lote: ";
+                                cin.ignore();
+                                cout << "Ingrese el numero de lote: ";
                                 cin >> bebida.lote;
-                                BuscaryModificarBebida(bebida.nombre_bebida, bebida.lote);
+
+                                modificadob = BuscaryModificarBebida(bebida.nombre_bebida, bebida.lote);
+                                if (modificadob == 1)
+                                {
+                                    //Llenamos bitacora
+                                    bitacoraprod.usuario = nombre_usuario;
+                                    bitacoraprod.accion = "Se modifico un producto";
+                                    bitacoraprod.producto_afectado = bebida.nombre_bebida;
+                                    bitacoraprod.bebida.cantidad = bebida.cantidad;
+                                    bitacoraprod.bebida.lote = lote;
+                                    bitacoraprod.bebida.nombre_bebida = bebida.nombre_bebida;
+                                    bitacoraprod.bebida.precio = bebida.precio;
+                                    bitacoraprod.bebida.precio_venta = bebida.precio_venta;
+                                    bitacoraprod.bebida.tipo_bebida = bebida.tipo_bebida;
+                                    bitacoraprod.fecha = GetCurrentDate();
+                                    AgregarBitacoraProd(bitacoraprod);
+                                }
+                                
                                 cout << endl;
                                 regresar = 0;
                                 break; 
@@ -478,17 +555,30 @@ int main()
                                 case 4: 
                                 // Opcion 4 menu 
                                 ImprimirBebidas();
+                                int eliminadob;
                                 cout << " Ingrese el nombre de la bebida a eliminar: ";
                                 getline(cin, bebida.nombre_bebida);
                                 cout << " Ingrese el numero de lote: ";
                                 cin >> bebida.lote;
-
-                                EliminarBebida(bebida.nombre_bebida, bebida.lote);
-                                cout << endl; 
-                                cout << " Bebida eliminada correctamente" << endl;
+                                eliminadob = EliminarBebida(bebida.nombre_bebida, bebida.lote);
+                                if (eliminadob == 1)
+                                {
+                                    //Llenamos bitacora
+                                    bitacoraprod.usuario = nombre_usuario;
+                                    bitacoraprod.accion = "Se elimino un producto";
+                                    bitacoraprod.producto_afectado = bebida.nombre_bebida;
+                                    bitacoraprod.bebida.cantidad = bebida.cantidad;
+                                    bitacoraprod.bebida.lote = lote;
+                                    bitacoraprod.bebida.nombre_bebida = bebida.nombre_bebida;
+                                    bitacoraprod.bebida.precio = bebida.precio;
+                                    bitacoraprod.bebida.precio_venta = bebida.precio_venta;
+                                    bitacoraprod.bebida.tipo_bebida = bebida.tipo_bebida;
+                                    bitacoraprod.fecha = GetCurrentDate();
+                                    AgregarBitacoraProd(bitacoraprod);
+                                }
+                                
                                 cout << endl;
-                                regresarmenupro = 1;
-                                regresar = 0;
+                                cout << " Bebida eliminada correctamente" << endl; 
                                 break; 
 
                                 case 5: 
