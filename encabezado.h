@@ -21,6 +21,7 @@ struct Usuarios
 void InicializarUsuarios();
 int BuscarUsuario();
 void AgregarUsuarios(Usuarios);
+void ModificarUsuario(string);
 
 
 #endif // FUNCIONES_H

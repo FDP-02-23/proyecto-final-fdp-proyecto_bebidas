@@ -83,3 +83,34 @@ void AgregarUsuarios(Usuarios nuevoUsuario)
     cout << endl;
     return;
 }
+void ModificarUsuario(string nombreUsuario) // Funcion que se encarga de modificar al usuario
+{
+    string nuevoNombre;
+    string contrasenia;
+    int tipo;
+
+    for (int i = 0; i < usuario.size(); i++)
+    {
+        if (nombreUsuario == usuario[i].usuario)
+        {
+            cout << endl;
+            cout << " Ingrese el nuevo nombre de usuario: ";
+            cin >> nuevoNombre;
+            cout << " Ingrese la nueva clave: ";
+            cin >> contrasenia;
+            cout << endl;
+            cout << " Ingrese el nuevo tipo de usuario:\n (1) Si es administrador\n (2) Si es empleado\n >";
+            cin >> tipo;
+            cout << endl;
+
+            usuario[i].usuario = nuevoNombre;
+            usuario[i].contrasenia = contrasenia;
+            usuario[i].tipo_usuario = tipo;
+
+            cout << " Usuario modificado exitosamente\n";
+            cout << endl;
+            return;
+        }
+    }
+    cout << " No se ha encontrado el usuario!" << endl;
+}
