@@ -57,7 +57,6 @@ struct Bitacora_ven{
     Ventas ventas;
 };
 
-
 void InicializarUsuarios();
 int BuscarUsuario();
 int BuscarUsuario(string, string);
