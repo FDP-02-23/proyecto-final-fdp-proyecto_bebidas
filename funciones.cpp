@@ -66,3 +66,20 @@ int BuscarUsuario()
     } while (tipo_usu == 0);
     return tipo_usu;
 }
+void AgregarUsuarios(Usuarios nuevoUsuario)
+{
+    // Variable dentro de la funcion encargada de verificar si existe el usuario y dependiendo del valor retornara 1 si no existe
+    for (int i = 0; i < usuario.size(); i++)
+    {
+        if (nuevoUsuario.usuario == usuario[i].usuario)
+        {
+            cout << " Usuario ya axistente! Por favor agregue un usuario valido\n";
+            cout << endl;
+            return;
+        }
+    }
+    usuario.push_back(nuevoUsuario);
+    cout << " Usuario agregado existosamente\n";
+    cout << endl;
+    return;
+}
