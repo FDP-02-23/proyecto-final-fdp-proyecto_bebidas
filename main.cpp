@@ -702,6 +702,7 @@ int main()
                                 ImprimirVentas();
                                 int cantidad;
                                 int lote_producto;
+                                int eliminadov;
                                 cout << " Ingrese el nombre de la bebida: ";
                                 getline(cin, ventas.nombre_bebida);
                                 cout << " Ingrese el numero de ID de la venta: ";
@@ -710,22 +711,27 @@ int main()
                                 lote_producto = BuscarLote(ventas.identificador);
                                 cantidad = BuscarCantidadVenta(ventas.identificador);
 
-                                EliminarVenta(ventas.nombre_bebida, ventas.identificador);
+                                eliminadov = EliminarVenta(ventas.nombre_bebida, ventas.identificador);
 
-                                ModificarStockDevolucion(lote_producto, cantidad, ventas.nombre_bebida);
-                                //Llenamos bitacora
-                                bitacoraven.accion = "Se elimino una venta";
-                                bitacoraven.usuario = nombre_usuario;
-                                bitacoraven.venta_afectada = ventas.nombre_bebida;
-                                bitacoraven.ventas.cantidad = ventas.cantidad;
-                                bitacoraven.ventas.identificador = identificador;
-                                bitacoraven.ventas.fecha = ventas.fecha;
-                                bitacoraven.ventas.lote = ventas.lote;
-                                bitacoraven.ventas.nombre_bebida = ventas.nombre_bebida;
-                                bitacoraven.ventas.nombre_consumidor = ventas.nombre_consumidor;
-                                bitacoraven.ventas.precio_total = ventas.precio_total;
-                                bitacoraven.fecha = GetCurrentDate();
-                                AgregarBitacoraVen(bitacoraven);
+                                if (eliminadov == 1)
+                                {
+                                    ModificarStockDevolucion(lote_producto, cantidad, ventas.nombre_bebida);
+                                    //Llenamos bitacora
+                                    bitacoraven.accion = "Se elimino una venta";
+                                    bitacoraven.usuario = nombre_usuario;
+                                    bitacoraven.venta_afectada = ventas.nombre_bebida;
+                                    bitacoraven.ventas.cantidad = ventas.cantidad;
+                                    bitacoraven.ventas.identificador = identificador;
+                                    bitacoraven.ventas.fecha = ventas.fecha;
+                                    bitacoraven.ventas.lote = ventas.lote;
+                                    bitacoraven.ventas.nombre_bebida = ventas.nombre_bebida;
+                                    bitacoraven.ventas.nombre_consumidor = ventas.nombre_consumidor;
+                                    bitacoraven.ventas.precio_total = ventas.precio_total;
+                                    bitacoraven.fecha = GetCurrentDate();
+                                    AgregarBitacoraVen(bitacoraven);
+                                }
+                                
+
                                 regresarmenuven = 1;
                                 regresar = 0;
                                 break;

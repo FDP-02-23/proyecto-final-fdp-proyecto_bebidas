@@ -65,8 +65,9 @@ void AgregarVenta(Ventas nuevaVenta)
 {
     venta.push_back(nuevaVenta);
 }
-void EliminarVenta(string nombreBebida, int identificador)
+int EliminarVenta(string nombreBebida, int identificador)
 {
+    int eliminado = 0;
     for (int i = 0; i < venta.size(); i++)
     {
         if (nombreBebida == venta[i].nombre_bebida && identificador == venta[i].identificador)
@@ -74,7 +75,8 @@ void EliminarVenta(string nombreBebida, int identificador)
             venta.erase(venta.begin() + i);
             cout << " Venta eliminada correctamente y stock actualizado" << endl;
             cout << endl;
-            return;
+            eliminado = 1;
+            return eliminado;
         }
     }
     cout << " No se ha encotrado la bebida! Ingresar bien el nombre o el lote" << endl;
@@ -641,4 +643,15 @@ void ImprimirBitacoraVen(string nombre)
     }
     cout << "\n\n" << endl;
 }
-
+int BuscarCantidadVenta(int identificador)
+{
+    int cantidad = 0;
+    for (Ventas ventas : venta)
+    {
+        if (identificador == ventas.identificador)
+        {
+            cantidad = ventas.cantidad;
+        }
+    }
+    return cantidad;
+}
