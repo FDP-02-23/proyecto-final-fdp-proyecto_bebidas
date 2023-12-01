@@ -72,11 +72,77 @@ int main()
                 cin >> opcion;
                 cin.ignore();
                 cout << endl;
+                do
+                {
+                    system("cls");
+                    cout << endl;
+                    switch (opcion)
+                    {
+                    // Opcion 1 de menu Administrador
+                    case 1: 
+                    cout << "------- MANEJO DE USUARIOS ------- " << endl;
+                    cout << endl;
+                    break; 
 
+                    // Opcion 2 de menu Administrador
+                    case 2: 
+                    cout << "----- MANEJO DE PRODUCTOS ----- " << endl;
+                    cout << endl;
+                    break; 
+
+                    // Opcion 3 del menu Administrador
+                    case 3: 
+                    cout << endl; 
+                    cout << "----- REGISTRO DE VENTAS DIARIAS ----- " << endl;
+                    break; 
+
+                    // Opcion 4 del menu Administrador
+                    case 4: 
+                    cout << "---------- BITACORA ---------- " << endl;
+                    system("pause");
+                    regresar = 1;
+                    break; 
+
+                     // Opcion 5 del menu Administrador
+                    case 5: 
+                        cout << "De verdad desea cerrar sesion? Si (0), No (1)  \n > ";
+                        cin >> sesion;
+                        cout << endl;
+                        if (sesion == 0)
+                        {
+                            cout << " Ha cerrado sesion" << endl;
+                            contador = 1;
+                            regresar = 1;
+                        }
+                        else if (sesion == 1)
+                        {
+                            cout << "  Sesion manetenida" << endl;
+                            contador = 0;
+                            regresar = 1;
+                        }
+                        else
+                        {
+                            sesion = 0;
+                            cout << "Opcion no valida! Cerrado sesion..." << endl;
+                            contador = 1;
+                            regresar = 1;
+                        }
+                        system("pause");
+                    break;
+                    system("cls");
+
+                    default:
+                        cout << "Ingrese una opcion valida! " << endl;
+                        cout << endl;
+                        regresar = 1;
+                        contador = 0;
+                        break;
+                    }
+                } while(regresar == 0);
                 break; 
 
-                case 2: 
                 // Menu principal Usuario Administrador 2
+                case 2: 
                 cout << GetCurrentDate() << endl;
                 cout << "***************************************" << endl;
                 cout << "  ----- EMPLEADO ADMINISTRADOR -----" << endl;
