@@ -51,3 +51,38 @@ void EliminarVenta(string nombreBebida, int identificador)
     }
     cout << " No se ha encotrado la bebida! Ingresar bien el nombre o el lote" << endl;
 }
+void MostrarRegistro(string archivo)
+{
+
+    ifstream file(archivo);
+
+    if (file.is_open())
+    {
+        string line;
+        while (getline(file, line))
+        {
+            cout << line << endl;
+        }
+        file.close();
+    }
+    else
+    {
+        cout << "No hay registros de ventas existentes!" << endl;
+    }
+}
+void ImprimirVentas()
+{
+    for (Ventas venta : venta)
+    {
+        cout << endl;
+        cout << GetCurrentDate() << endl;
+        cout << " ID de venta: " << venta.identificador << endl;
+        cout << " Nombre del Cliente: " << venta.nombre_consumidor << endl;
+        cout << " Nombre Bebida: " << venta.nombre_bebida << endl;
+        cout << " Cantidad de packs: " << venta.cantidad << endl;
+        cout << " Numero de lote: " << venta.lote << endl;
+        cout << " Total a pagar: $" << venta.precio_total << endl;
+    }
+    cout << "\n\n";
+}
+
