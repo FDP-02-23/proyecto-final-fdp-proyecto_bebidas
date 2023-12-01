@@ -15,10 +15,10 @@ int main()
 
     Bebida bebida;           // Declaracion estructura
     Usuarios usuarios;       // Declaracion estructura
-    Ventas ventas; 
+    Ventas ventas;           // Declaracion estructura
     Bitacora_usu bitacora;   // Declaracion estructura
-    Bitacora_prod bitacoraprod;
-    Bitacora_ven bitacoraven;          // Declaracion estructura
+    Bitacora_prod bitacoraprod;  // Declaracion estructura
+    Bitacora_ven bitacoraven;  // Declaracion estructura
     int opcion;              // Variable encargada de evaluar la opcion ingresada por el cliente
     string nombre_usuario;   // Variable que captura el nombre de usuario
     string contrasenia;      // Variable que captura la clave
@@ -133,41 +133,50 @@ int main()
                                 break;
                             case 3:
                                 ImprimirUsuarios();
+                                int modificado;
                                 cout << " Ingrese el nombre del usuario a modificar: ";
                                 cin >> usuarios.usuario;
-                                //Añadiendo el registro a la estructura de bitacora y asi llevar registro
-                                bitacora.usuario = nombre_usuario;
-                                bitacora.usuarios.usuario = usuarios.usuario;
-                                bitacora.usuarios.contrasenia = usuarios.contrasenia;
-                                bitacora.usuarios.tipo_usuario = usuarios.tipo_usuario;
-                                bitacora.usuario_afectado = usuarios.usuario;
-                                bitacora.usuarios.usuario_creacion = nombre_usuario;
-                                bitacora.accion = "Se modifico un usuario";
-                                bitacora.fecha = GetCurrentDate();
 
-                                ModificarUsuario(usuarios.usuario);
-                                AgregarBitacoraUsu(bitacora);
+                                modificado = ModificarUsuario(usuarios.usuario);
 
+                                if (modificado == 1)
+                                {
+                                    bitacora.usuario = nombre_usuario;
+                                    bitacora.usuarios.usuario = usuarios.usuario;
+                                    bitacora.usuarios.contrasenia = usuarios.contrasenia;
+                                    bitacora.usuarios.tipo_usuario = usuarios.tipo_usuario;
+                                    bitacora.usuario_afectado = usuarios.usuario;
+                                    bitacora.usuarios.usuario_creacion = nombre_usuario;
+                                    bitacora.accion = "Se modifico un usuario";
+                                    bitacora.fecha = GetCurrentDate();
+                                    AgregarBitacoraUsu(bitacora);
+                                }
+                                
                                 regresarmenuusu = 1;
                                 regresar = 0;
 
                                 break;
                             case 4:
+                                int eliminado;
                                 ImprimirUsuarios();
                                 cout << " Ingrese el nombre de usuario a eliminar: ";
                                 cin >> usuarios.usuario;
 
-                                EliminarUsuario(usuarios.usuario);
-                                cout << endl;
-                                bitacora.usuario = nombre_usuario;
-                                bitacora.usuarios.usuario = usuarios.usuario;
-                                bitacora.usuarios.contrasenia = usuarios.contrasenia;
-                                bitacora.usuarios.tipo_usuario = usuarios.tipo_usuario;
-                                bitacora.usuario_afectado = usuarios.usuario;
-                                bitacora.usuarios.usuario_creacion = nombre_usuario;
-                                bitacora.accion = "Se elimino un usuario";
-                                bitacora.fecha = GetCurrentDate();
-                                AgregarBitacoraUsu(bitacora);
+                                eliminado = EliminarUsuario(usuarios.usuario);
+                                
+                                if (eliminado == 1)
+                                {
+                                    cout << endl;
+                                    bitacora.usuario = nombre_usuario;
+                                    bitacora.usuarios.usuario = usuarios.usuario;
+                                    bitacora.usuarios.contrasenia = usuarios.contrasenia;
+                                    bitacora.usuarios.tipo_usuario = usuarios.tipo_usuario;
+                                    bitacora.usuario_afectado = usuarios.usuario;
+                                    bitacora.usuarios.usuario_creacion = nombre_usuario;
+                                    bitacora.accion = "Se elimino un usuario";
+                                    bitacora.fecha = GetCurrentDate();
+                                    AgregarBitacoraUsu(bitacora);
+                                }
                                 regresarmenuusu = 1;
                                 regresar = 0;
                                 break;
@@ -681,8 +690,8 @@ int main()
                 } while(regresar == 0);
                 break; 
             default:
-
-                break;
+            contador = 1;
+            break;
             }
         } while(contador == 0);
     } while(sesion == 0);

@@ -330,8 +330,9 @@ void AgregarUsuarios(Usuarios nuevoUsuario)
     cout << endl;
     return;
 }
-void ModificarUsuario(string nombreUsuario) // Funcion que se encarga de modificar al usuario
+int ModificarUsuario(string nombreUsuario) // Funcion que se encarga de modificar al usuario
 {
+    int modificado = 0;
     string nuevoNombre;
     string contrasenia;
     int tipo;
@@ -355,8 +356,9 @@ void ModificarUsuario(string nombreUsuario) // Funcion que se encarga de modific
             usuario[i].tipo_usuario = tipo;
 
             cout << " Usuario modificado exitosamente\n";
+            modificado = 1;
             cout << endl;
-            return;
+            return modificado;
         }
     }
     cout << " No se ha encontrado el usuario!" << endl;
@@ -370,15 +372,17 @@ void ImprimirUsuarios()
     }
     cout << endl;
 }
-void EliminarUsuario(string usuarioEliminar)
+int EliminarUsuario(string usuarioEliminar)
 {
+    int eliminado = 0;
     for (int i = 0; i < usuario.size(); i++)
     {
         if (usuarioEliminar == usuario[i].usuario)
         {
             usuario.erase(usuario.begin() + i);
             cout << " Usuario eliminado correctamente" << endl;
-            return;
+            eliminado = 1;
+            return eliminado;
         }
     }
     cout << "El usuario no existe!" << endl;
