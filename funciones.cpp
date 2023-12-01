@@ -123,3 +123,16 @@ void ImprimirUsuarios()
     }
     cout << endl;
 }
+void EliminarUsuario(string usuarioEliminar)
+{
+    for (int i = 0; i < usuario.size(); i++)
+    {
+        if (usuarioEliminar == usuario[i].usuario)
+        {
+            usuario.erase(usuario.begin() + i);
+            cout << " Usuario eliminado correctamente" << endl;
+            return;
+        }
+    }
+    cout << "El usuario no existe!" << endl;
+}
