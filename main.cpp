@@ -154,9 +154,40 @@ int main()
                 cout << " (3) Cerrar sesion\n >";
                 cin >> opcion;
                 cout << endl;
-                break; 
+                do
+                {
+                    system("cls");
+                    switch (opcion)
+                    {
+                        // Opcion 1 del menu Usuario Administrador 2
+                        case 1:
+                        cout << endl;
+                        cout << "----- MANEJO DE PRODUCTOS ----- " << endl;
+                        break;
 
+                        // Opcion 2 del menu Usuario Administrador 2
+                        case 2: 
+                        cout << endl;
+                        cout << "----- MANEJO DE VENTAS ----- " << endl;
+                        break; 
+
+                        // Opcion 3 del menu Usuario Administrador
+                        case 3: 
+                        cout << endl;
+                        cout << " De verdad desea cerrar sesion? Si (0), No (1)" << endl;
+                        break; 
+
+                    default:
+                        cout << " Ingrese una opcion valida!" << endl;
+                        cout << endl;
+                        regresar = 1;
+                        contador = 0;
+                        break;
+                    }
+                } while(regresar == 0);
+                break; 
             default:
+
                 break;
             }
         } while(contador == 0);
